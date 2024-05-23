@@ -6,6 +6,7 @@ body {
   font-family: "Poppins", sans-serif;
   background: rgb(0, 0, 0);
   background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(20, 33, 61, 1) 35%, rgba(20, 33, 61, 1) 65%, rgba(0, 2, 3, 1) 100%);
+  background-image: url(../assets/imgs/imagem-fundo.png);
 }
 
 :root {
@@ -22,8 +23,8 @@ body {
 }
 
 .header {
-  background: rgb(0, 0, 0);
-  background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(20, 33, 61, 1) 35%, rgba(20, 33, 61, 1) 65%, rgba(0, 2, 3, 1) 100%);
+  /* background: rgb(0, 0, 0);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(20, 33, 61, 1) 35%, rgba(20, 33, 61, 1) 65%, rgba(0, 2, 3, 1) 100%); */
   height: var(--tamanho-header);
 }
 
@@ -69,7 +70,15 @@ body {
 }
 
 .textos{
-  margin-left: 11%;
+  margin-left: 10%;
+}
+
+.boasVindas{
+  font-size: 40px;
+}
+
+.frase{
+  font-size: 25px;
 }
 
 .banner .container {
@@ -87,7 +96,7 @@ body {
 }
 
 .banner .container {
-  width: 90%;
+  width: 100%;
   margin: 0;
   padding: 0;
   font-size: 36px;
