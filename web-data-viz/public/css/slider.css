@@ -13,7 +13,7 @@ section.slider{
 }
 
 .slider-content input{
-    /* display: none; */
+    display: none;
 }
 
 .slide-box{
@@ -52,7 +52,7 @@ section.slider{
     background-color: #FCA311;
 }
 
-#radio1:checked ~ .nav-auto .auto-btn1, #radio1:checked ~ .nav-auto .auto-btn2, #radio1:checked ~ .nav-auto .auto-btn3{
+#radio1:checked ~ .nav-auto .auto-btn1, #radio2:checked ~ .nav-auto .auto-btn2, #radio3:checked ~ .nav-auto .auto-btn3{
     background-color: #FCA311;
 }
 
