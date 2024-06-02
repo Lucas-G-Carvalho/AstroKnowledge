@@ -97,6 +97,9 @@ function finishGame(){
     <button onclick=window.location.reload() class = "button">
     Refazer teste
     </button>
+    <button onclick=window.location.href="./dashboard.html" class="button">
+        Voltar
+    </button>
     `
 
 
@@ -204,8 +207,8 @@ const questions = [
         question: "Qual o planeta conhecido por ter anéis?",
         answers: [
             {text: "Mercúrio", correct: false},
-            {text: "Júpiter", correct: true},
-            {text: "Saturno", correct: false},
+            {text: "Júpiter", correct: false},
+            {text: "Saturno", correct: true},
             {text: "Marte", correct: false}
         ]
     },

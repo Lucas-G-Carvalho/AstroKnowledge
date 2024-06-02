@@ -52,7 +52,7 @@ section.slider{
     background-color: #FCA311;
 }
 
-#radio1:checked ~ .nav-auto .auto-btn1, #radio2:checked ~ .nav-auto .auto-btn2, #radio3:checked ~ .nav-auto .auto-btn3{
+#radio1:checked ~ .nav-auto .auto-btn1, #radio2:checked ~ .nav-auto .auto-btn2, #radio3:checked ~ .nav-auto .auto-btn3, #radio4:checked ~ .nav-auto .auto-btn4, #radio5:checked ~ .nav-auto .auto-btn5, #radio6:checked ~ .nav-auto .auto-btn6, #radio7:checked ~ .nav-auto .auto-btn7, #radio8:checked ~ .nav-auto .auto-btn8{
     background-color: #FCA311;
 }
 
@@ -66,4 +66,24 @@ section.slider{
 
 #radio3:checked ~ .primeiro{
     margin-left: -50%;
+}
+
+#radio4:checked ~ .primeiro{
+    margin-left: -75%;
+}
+
+#radio5:checked ~ .primeiro{
+    margin-left: -100%;
+}
+
+#radio6:checked ~ .primeiro{
+    margin-left: -125%;
+}
+
+#radio7:checked ~ .primeiro{
+    margin-left: -150%;
+}
+
+#radio8:checked ~ .primeiro{
+    margin-left: -175%;
 }
