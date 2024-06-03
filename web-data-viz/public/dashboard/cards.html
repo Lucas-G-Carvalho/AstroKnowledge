@@ -8,14 +8,14 @@
     <title>AstroKnowledge | Página Inicial</title>
 
 
-    <link rel="icon" href="./assets/imgs/icone.png.png">
+    <!-- <link rel="icon" href="./assets/img"> -->
     <link rel="stylesheet" href="./../css/style-quiz.css">
     <link rel="stylesheet" href="./../css/dashboards.css">
     <link rel="stylesheet" href="./../css/estilo.css" />
 
     <script src="../js/sessao.js"></script>
     <script src="../js/js-quiz.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -24,7 +24,7 @@
       
 </head>
 
-<body onload="validarSessao(), exibirAquarios(),  atualizacaoPeriodica()">
+<body onload="validarSessao()">
 
     <div class="janela">
 
@@ -37,7 +37,7 @@
             </div>
 
             <div class="btn-nav">
-                <h3>Perfil</h3>
+                <h3>Ranking</h3>
             </div>
 
             <div class="btn-nav-white">
@@ -59,6 +59,77 @@
         </div>
 
         <div class="dash">
+            <div class="container">
+                <h2>Maiores Pontuadores-Quiz</h2>
+                <canvas id="myChart" width="800" height="200"></canvas>
+                
+              </div>
+              <script>
+                const ctx = document.getElementById('myChart').getContext('2d');
+                const myChart = new Chart(ctx, {
+                  type: 'bar',
+                  data: {
+                    labels: [],
+                    datasets: [{
+                      label: 'Total de Acertos',
+                      data: [],
+                      backgroundColor: ['orange', 'blue', 'green', 'yellow','red','black'],
+                      borderColor: 'white',
+                      borderWidth: 3
+                    }]
+                  },
+                  options: {
+                    scales: {
+                      y: {
+                        beginAtZero: true
+                      }
+                    },
+                    plugins: {
+                            afterDatasetsDraw: function (chart) {
+                                const ctx = chart.ctx;
+                                chart.data.datasets.forEach((dataset, i) => {
+                                    const meta = chart.getDatasetMeta(i);
+                                    meta.data.forEach((bar, index) => {
+                                        const model = bar;
+                                        const yPos = model.y - 25;
+                                        const xPos = model.x - 10;
+                                        ctx.drawImage(images[index], xPos, yPos, 20, 20);  // Ajuste o tamanho da imagem conforme necessário
+                                    });
+                                });
+                            },
+                            legend: {
+                                labels: {
+                                    color: 'white',
+                                    backgroundColor: ['black'],
+                                    // Ajuste da fonte e cor dos nomes dos times
+                                    font: {
+                                        size: 20, // Tamanho da fonte
+                                        weight: 'bold' // Peso da fonte
+                                    },
+                                    color: 'White' // Cor do texto
+                                }
+                            }
+                        }
+                    }
+                });
+                  
+                
+            
+                async function fetchData() {
+                  const response = await fetch('http://localhost:8080/pontuacao/top-scorers');
+                  const data = await response.json();
+                  const labels = data.map(item => item.nome);
+                  const values = data.map(item => item.total_acertos);
+            
+                  myChart.data.labels = labels;
+                  myChart.data.datasets[0].data = values;
+                  myChart.update();
+                }
+            
+                fetchData();
+                setInterval(fetchData, 10000);  // Atualiza a cada 10 segundos
+              </script>
+        </div>
         </div>
 
     </div>

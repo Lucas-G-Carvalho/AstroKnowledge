@@ -7,9 +7,9 @@ const $nextQuestionButton = document.querySelector(".next-question")
 $startGameButton.addEventListener("click", startGame)
 $nextQuestionButton.addEventListener("click", displayNextQuestion)
 
-
+ 
 let currentQuestionIndex = 0 
-let totalCorrect = 0
+let totalcorrect = 0
 
 function startGame(){
     $startGameButton.classList.add("hide")
@@ -49,7 +49,7 @@ function selectAnswer(event){
     const answerClicked = event.target
 
     if (answerClicked.dataset.correct) {
-        totalCorrect++
+        totalcorrect++
     }
 
     document.querySelectorAll(".answer").forEach(button => {
@@ -70,7 +70,7 @@ function selectAnswer(event){
 
 function finishGame(){
     const totalQuestion = questions.length
-    const performance = Math.floor(totalCorrect * 100 / totalQuestion)
+    const performance = Math.floor(totalcorrect * 100 / totalQuestion)
 
     let message = ""
 
@@ -91,7 +91,7 @@ function finishGame(){
     $questionsContainer.innerHTML = 
     `
     <p class="final-message">
-        Você acertou ${totalCorrect} de ${totalQuestion} questões!
+        Você acertou ${totalcorrect} de ${totalQuestion} questões!
         <span> Resultado: ${message}</span>
     </p>
     <button onclick=window.location.reload() class = "button">
@@ -102,9 +102,37 @@ function finishGame(){
     </button>
     `
 
+    salvarPontuacao()
 
 }
 
+function salvarPontuacao(){
+    const idUsuario= sessionStorage.ID_USUARIO
+    fetch("/quizRoutes/cadastrarPontuacao", {
+  method: "POST",
+  headers: {                
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify({
+    // crie um atributo que recebe o valor recuperado aqui
+    // Agora vá para o arquivo routes/usuario.js
+    idUsuarioServer: idUsuario,
+    qtdAcertosServer:totalcorrect,
+  }),
+})
+  .then(function (resposta) {
+    console.log("resposta: ", resposta);
+
+    if (resposta.ok) {
+     
+    } else {
+      throw "Houve um erro ao tentar realizar o cadastro!";
+    }
+  })
+  .catch(function (resposta) {
+    console.log(`#ERRO: ${resposta}`);
+  });
+}
 
 
 
