@@ -52,7 +52,7 @@ section.slider{
     background-color: #FCA311;
 }
 
-#radio1:checked ~ .nav-auto .auto-btn1, #radio2:checked ~ .nav-auto .auto-btn2, #radio3:checked ~ .nav-auto .auto-btn3, #radio4:checked ~ .nav-auto .auto-btn4, #radio5:checked ~ .nav-auto .auto-btn5, #radio6:checked ~ .nav-auto .auto-btn6, #radio7:checked ~ .nav-auto .auto-btn7, #radio8:checked ~ .nav-auto .auto-btn8{
+#radio1:checked ~ .nav-auto .auto-btn1, #radio2:checked ~ .nav-auto .auto-btn2, #radio3:checked ~ .nav-auto .auto-btn3, #radio4:checked ~ .nav-auto .auto-btn4, #radio5:checked ~ .nav-auto .auto-btn5, #radio6:checked ~ .nav-auto .auto-btn6, #radio7:checked ~ .nav-auto .auto-btn7, #radio8:checked ~ .nav-auto .auto-btn8,#radio9:checked ~ .nav-auto .auto-btn9{
     background-color: #FCA311;
 }
 
@@ -86,4 +86,8 @@ section.slider{
 
 #radio8:checked ~ .primeiro{
     margin-left: -175%;
+}
+
+#radio9:checked ~ .primeiro{
+    margin-left: -200%;
 }
