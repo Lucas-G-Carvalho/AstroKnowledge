@@ -115,7 +115,7 @@ body {
 }
 
 .dash {
-  width: 80%;
+  width: 100vh;
   position: relative;
   top: 0;
   left: 20%;
